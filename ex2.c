@@ -186,13 +186,15 @@ int main() {
 			case 6: {
 				int smileNumber = 0, cheerNumber = 0;
 				printf("Enter a smile and cheer number:\n");
-				while (getchar() != '\n'){ };
+				scanf("%*[^\n]");
+				scanf("%*c");
 				while(1) {
 					if((scanf("smile : %d, cheer :  %d", &smileNumber, &cheerNumber) ==2) && smileNumber > 0 && cheerNumber > 0 && smileNumber != cheerNumber){
 							break;
 					}
 					printf("Only 2 different positive numbers in the given format are allowed for the festival, please try again:\n");
-					while (getchar() != '\n'){ };
+					scanf("%*[^\n]");
+					scanf("%*c");
 				}
 				int maxNum;
 				printf("Enter maximum number for the festival:\n");
