@@ -184,7 +184,6 @@ int main() {
 				break;
 			}
 			case 6: {
-				printf("Enter a number:\n");
 				int smileNumber = 0, cheerNumber = 0;
 				printf("Enter a smile and cheer number:\n");
 				scanf("%*[^\n]");
