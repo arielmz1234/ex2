@@ -195,10 +195,10 @@ int main() {
 					while (getchar() != '\n'){ };
 				}
 				int maxNum;
-				printf("Enter a number:\n");
+				printf("Enter a maximum number for the festival:\n");
 				scanf("%d", &maxNum);
 				while (maxNum <= 0) {
-					printf("Only positive number is allowed, please try again:\n");
+					printf("Only positive maximum number is allowed, please try again:\n");
 					scanf("%d", &maxNum);
 				}
 				for (int i = 1; i <= maxNum; i++) {
