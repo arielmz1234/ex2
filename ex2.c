@@ -191,7 +191,7 @@ int main() {
 					if((scanf("smile : %d, cheer :  %d", &smileNumber, &cheerNumber) ==2) && smileNumber > 0 && cheerNumber > 0 && smileNumber != cheerNumber){
 							break;
 					}
-					printf("Only 2 different positive numbers in the given format are allowed for\nthe festival, please try again:\n");
+					printf("Only 2 different positive numbers in the given format are allowed for the festival, please try again:\n");
 					while (getchar() != '\n'){ };
 				}
 				int maxNum;
