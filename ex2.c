@@ -195,7 +195,7 @@ int main() {
 					while (getchar() != '\n'){ };
 				}
 				int maxNum;
-				printf("Enter a maximum number for the festival:\n");
+				printf("Enter maximum number for the festival:\n");
 				scanf("%d", &maxNum);
 				while (maxNum <= 0) {
 					printf("Only positive maximum number is allowed, please try again:\n");
