@@ -5,7 +5,9 @@ Assignment: ex2
 *******************/
 
 #include <stdio.h>
-
+#define LOGICAL_TEN 10 //LOGICAL_TEN will be used for logical action we want to do with the number 10
+#define ALL_HAPPY 1 //ALL_HAPPY will be used in case 5 as the number all happy number eventually reach
+#define ALL_UNHAPPY 4 //ALL_UNHAPPY will be used in case 5 as the number that all the not happy number eventually reach
 int main() {
 	int cases = 0;
 	while (cases != 7){//creating a loop so while the user didn't choose 7(exit), the program continues
@@ -56,27 +58,27 @@ int main() {
 				and if I need to use the number again I can't so I created clones*/
 				int leftDigits = 0;//leftDigits will hold sum of the digits left to the middle digit
 				int rightDigits = 0;//rightDigits will hold sum of the digits right to the middle digit
-				while (number1 >= 10) {
-					number1 /= 10;
+				while (number1 >= LOGICAL_TEN) {
+					number1 /= LOGICAL_TEN;
 					numSize++;
 				}/*this while loop gets how many digits the number
 				contain by adding 1 to the numSize each the number is divided by 10 and each*/
 				int numSizePow = 1;/*numSizePow will give me 10 to the power of numSize, (1234 will give 1000),
 				initialized at 1 because we are going to multiply him*/
 				for (int i = 1; i < numSize; i++) {
-					numSizePow *= 10;
+					numSizePow *= LOGICAL_TEN;
 				}//this for loop runs until numSize and each time takes numSizePow and multiply him by 10
 				int loopLength = numSize/2;//instead of writing numSize/2 in each for loop, loopLength will hold this value
 				for (int i = 1; i <= loopLength; i++) {
-					rightDigits += (number2 % 10);
-					number2 /= 10;
+					rightDigits += (number2 % LOGICAL_TEN);
+					number2 /= LOGICAL_TEN;
 				}/*this loop runs until loopLength and each time takes the number and adds
 				  his rightmost digit to rightDigit, after that
 				  the number is divided by 10 which "deletes" the current rightmost digit*/
 				for (int i = 1; i <= loopLength; i++) {
 					leftDigits += (number3 / numSizePow);
 					number3 = (number3 - (numSizePow * (number3 / numSizePow)));
-					numSizePow /= 10;
+					numSizePow /= LOGICAL_TEN;
 				}/*this loop runs until loopLength and each time takes the number dived him by numSizePow which gives the leftmost digit
 				  and add it to leftDigits, the number is subtracted by the leftmost digit times numSizePow, doing that to the number
 				  "deletes" his leftmost digit, now in order for numSizePow to be the same digit size with the new number we got we divide
@@ -129,20 +131,20 @@ int main() {
 				int number2 = number;
 				/*number1,2 are clones of the number I want to check if balanced, every time I work on the number it changes
 				and if I need to use the number again I can't so I created clones*/
-				while (number1 >= 10) {
-					number1 /= 10;
+				while (number1 >= LOGICAL_TEN) {
+					number1 /= LOGICAL_TEN;
 					numSize++;
 				}/*this while loop gets how many digits the number
 				contain by adding 1 to the numSize each the number is divided by 10 and each*/
 				int numSizePow = 1;/*numSizePow will give me 10 to the power of numSize, (1234 will give 1000),
 				initialized at 1 because we are going to multiply him*/
 				for (int i = 1; i < numSize; i++) {
-					numSizePow *= 10;
+					numSizePow *= LOGICAL_TEN;
 				}//this for loop runs until numSize and each time takes numSizePow and multiply him by 10
 				while (number2 != 0) {
-					revNum += (number2 % 10) * numSizePow;
-					number2 /= 10;
-					numSizePow /= 10;
+					revNum += (number2 % LOGICAL_TEN) * numSizePow;
+					number2 /= LOGICAL_TEN;
+					numSizePow /= LOGICAL_TEN;
 				}/*in this while loop we take the rightmost digit of the number and multiply it by numSizePow and adding it to revNum,
 				after that we divide the number by 10 and divide numSizePow by 10,
 				by doing that we are adding the rightmost digits of the original number to the leftmost place in revNum*/
@@ -181,13 +183,13 @@ int main() {
 				while (runner <= number) {//this while loop ensures that we stop checking the runner number once he gets to the input number
 					int digit, powSum;//digit will hold the current digit we want to power
 					int number1 = runner;//clone of runner, so I can change him without changing runner
-					while(number1 != 1 && number1 != 4) {/*if the number that we want to check is happy or not, eventually every happy number reaches to 1,
+					while(number1 != ALL_HAPPY && number1 != ALL_UNHAPPY) {/*if the number that we want to check is happy or not, eventually every happy number reaches to 1,
 						and every unhappy number reaches 4, so we want to break out of the loop if one of those condition happens*/
 						powSum = 0;//powSum will hold the sum of each digit squared
 						while(number1 > 0) {
-							digit = number1 % 10;
+							digit = number1 % LOGICAL_TEN;
 							powSum += digit*digit;
-							number1 /= 10;
+							number1 /= LOGICAL_TEN;
 						}/*in this while loop we take the rightmost digit of the number that we are checking if is happy or not,
 							entering the value into digit, adding to powSum the digit squared and dividing the number by 10 which "deletes"
 							the rightmost number and then enter the loop again, when the number/10 equals 0 it means
