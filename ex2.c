@@ -10,7 +10,7 @@ Assignment: ex2
 #define ALL_UNHAPPY 4 //ALL_UNHAPPY will be used in case 5 as the number that all the not happy number eventually reach
 int main() {
 	int cases = 0;
-	while (cases != 7){//creating a loop so while the user didn't choose 7(exit), the program continues
+	while (cases != 7){ //creating a loop so while the user didn't choose 7(exit), the program continues
 	printf("Choose an option: \n     1. Happy Face\n     2. Balanced Number\n     3. Generous Number\n     4. Circle Of Joy\n     5. Happy Numbers\n     6. Festival Of Laughter\n     7. Exit\n");
 	scanf("%d", &cases);
 		switch (cases) {
